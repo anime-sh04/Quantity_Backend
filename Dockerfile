@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . ./
 
 # 👇 FIX HERE
-RUN dotnet restore QuantityMeasurementApp.slnx
+RUN dotnet restore QuantityMeasurementApp.sln
 
 # 👇 FIX HERE
 RUN dotnet publish QuantityMeasurementApp.Api/QuantityMeasurementApp.Api.csproj -c Release -o out
