@@ -3,8 +3,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 COPY . ./
-RUN dotnet restore
-RUN dotnet publish -c Release -o out
+
+# 👇 FIX HERE
+RUN dotnet restore QuantityMeasurementApp.slnx
+
+# 👇 FIX HERE
+RUN dotnet publish QuantityMeasurementApp.Api/QuantityMeasurementApp.Api.csproj -c Release -o out
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
