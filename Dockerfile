@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY . ./
 
-# 👇 FIX HERE
-RUN dotnet restore QuantityMeasurementApp.sln
+# ✅ Restore using API project directly
+RUN dotnet restore QuantityMeasurementApp.Api/QuantityMeasurementApp.Api.csproj
 
-# 👇 FIX HERE
-RUN dotnet publish QuantityMeasurementApp.Api/QuantityMeasurementApp.Api.csproj -c Release -o out
+# ✅ Publish API project
+RUN dotnet publish QuantityMeasurementApp.Api/QuantityMeasurementApp.Api.csproj -c Release -o /app/out
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
